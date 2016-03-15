@@ -218,6 +218,3 @@ DEPENDENCIES
   unicorn
   web-console (~> 2.0)
   xray-rails
-
-BUNDLED WITH
-   1.11.2
