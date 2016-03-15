@@ -32,7 +32,7 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'ruby_randimage', '0.0.2', :path => './gems/ruby_randimage'
+gem 'ruby_randimage'
 
 
 group :development, :test do
