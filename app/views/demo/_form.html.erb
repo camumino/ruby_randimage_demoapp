@@ -1,29 +1,48 @@
-<%= form_tag demo_generate_path, :remote => true do %>
-  <div class="form-group">
-    <%= label_tag :title %>
-    <%= text_field_tag :title, '', class: 'form-control', placeholder: 'Title' %>
+<div class="row">
+  <div class="col-xs-8">
+    <%= form_tag demo_generate_path, :remote => true do %>
+
+
+      <div class="col-xs-6">
+        <div class="form-group">
+          <%= text_field_tag :title, '', class: 'form-control', placeholder: 'Title' %>
+        </div>
+
+        <div class="form-group">
+          <%= number_field_tag :cells, 4, { class: 'form-control', min: 4, max: 9}%>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <%= check_box_tag :axe_x %> Eje X
+          </label>
+
+          <label>
+            <%= check_box_tag :axe_y %> Eje Y
+          </label>
+        </div>
+        
+        <%= submit_tag 'Generate' %>
+      </div>
+
+      <div class="col-xs-6">
+        <div id="color_list">
+          <%= render partial: 'demo/color_picker' %>
+        </div>
+
+        <%= link_to 'Añadir color', '#', :id => "add_color" %>
+      </div>
+    <% end %>
   </div>
 
-  <%= render partial: 'demo/color_picker' %>
-
-  <div class="checkbox">
-    <label>
-      <%= check_box_tag :axe_x %> Eje X
-    </label>
+  <div class="col-xs-4">
+    <img width= "200px" id="example">
   </div>
 
-  <div class="checkbox">
-    <label>
-      <%= check_box_tag :axe_y %> Eje Y
-    </label>
-  </div>
+</div>
 
-  <div class="form-group">
-    <%= label_tag :cells %>
-    <%= number_field_tag :cells, 4, { class: 'form-control', min: 4, max: 9}%>
-  </div>
-
-  <%= submit_tag 'Generate' %>
-<% end %>
-
-
+<script type="text/javascript">
+  $("#add_color").click(function(){
+    $("#color_list").append("<%= escape_javascript(render partial: 'demo/color_picker') %>");
+  });
+</script>

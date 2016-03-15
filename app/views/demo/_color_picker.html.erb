@@ -1,8 +1,7 @@
 <div class="form-group">
-  <%= label_tag :colors %>
-  <%= text_field_tag :colors, '', class: 'form-control', placeholder: '#ffffff' %>
+  <%= text_field_tag 'colors[]', '', class: 'color form-control' %>
 </div>
 
 <script type="text/javascript">
-  $("#color").minicolors();
+  $(".color").minicolors();
 </script>

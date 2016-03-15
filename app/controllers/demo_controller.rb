@@ -5,7 +5,7 @@ class DemoController < ApplicationController
 
   def generate
     title = params[:title].blank? ? "Awesome image" : params[:title]
-    colors = params[:colors].blank? ? ["#aaaaaa", "#990000"] : params[:blank]
+    colors = params[:colors].blank? ? ["#aaaaaa", "#990000"] : params[:colors]
     axe_x = params[:axe_x].blank? ? false : true
     axe_y = params[:axe_y].blank? ? false : true
     cells = params[:cells].blank? ? 8 : params[:cells].to_i
