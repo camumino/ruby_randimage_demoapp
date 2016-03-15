@@ -1,5 +1,5 @@
 PATH
-  remote: ../gems/ruby_randimage
+  remote: ./gems/ruby_randimage
   specs:
     ruby_randimage (0.0.2)
 
