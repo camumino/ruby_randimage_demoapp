@@ -1,8 +1,7 @@
-GIT
-  remote: git@github.com:santiriera626/ruby_randimage.git
-  revision: b51b02c87019779330a776c57bf429471449af9c
+PATH
+  remote: ../gems/ruby_randimage
   specs:
-    ruby_randimage (0.0.1)
+    ruby_randimage (0.0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -180,7 +179,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.5.2)
-  ruby_randimage!
+  ruby_randimage (= 0.0.2)!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
@@ -188,3 +187,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   xray-rails
+
+BUNDLED WITH
+   1.11.2

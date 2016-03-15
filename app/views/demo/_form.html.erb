@@ -1,3 +1,27 @@
-<%= form_tag demo_generate_path do %>
+<%= form_tag demo_generate_path, :remote => true do %>
+  <div class="form-group">
+    <%= label_tag :title %>
+    <%= text_field_tag :title, '', class: 'form-control', placeholder: 'Title' %>
+  </div>
+
+  <%= render partial: 'demo/color_picker' %>
+
+  <div class="checkbox">
+    <label>
+      <%= check_box_tag :axe_x %> Eje X
+    </label>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <%= check_box_tag :axe_y %> Eje Y
+    </label>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :cells %>
+    <%= number_field_tag :cells, 4, { class: 'form-control', min: 4, max: 9}%>
+  </div>
+
   <%= submit_tag 'Generate' %>
-<% end %> 
+<% end %>
