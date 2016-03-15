@@ -32,7 +32,13 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'ruby_randimage', '0.0.2', :path => '../gems/ruby_randimage'
+group :development do
+  gem 'ruby_randimage', '0.0.2', :path => '../gems/ruby_randimage'
+end
+
+group :development do
+  gem 'ruby_randimage', '0.0.2', :path => '../../gems/ruby_randimage'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
