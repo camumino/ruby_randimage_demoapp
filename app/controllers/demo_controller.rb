@@ -1,6 +1,7 @@
 class DemoController < ApplicationController
   
   def index
+    @image = RubyRandimage.create(:title => "Awesome image", :colors => ["#aaaaaa", "#990000"], :symmetry_axes=> [true, true], :num_cells => 10)
   end
 
   def generate
@@ -14,16 +15,12 @@ class DemoController < ApplicationController
   end
 
 
-  def example1
-    @image = RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)
+  def example
+    @example = params[:example].to_i
+    options = EXAMPLES[@example]
+
+    @image = RubyRandimage.create(options)
   end
 
-  def example2
-    @image = RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)
-  end
-
-  def example3
-    @image = RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)  
-  end
 
 end

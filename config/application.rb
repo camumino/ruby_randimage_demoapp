@@ -17,6 +17,18 @@ Bundler.require(*Rails.groups)
 
 module RubyRandimageDemoapp
   class Application < Rails::Application
+    config.before_configuration do
+      ::APP_CONFIG = ::ActiveSupport::OrderedOptions.new
+      config_yml = File.join(::Rails.root, 'config' , 'application.yml')
+      if not File.exists?(config_yml)
+        puts "Missing config/application.yml, aborting"
+       exit 1
+      end
+      YAML.load_file(config_yml)[::Rails.env].each do |key, value|
+        ::APP_CONFIG[key] = value
+      end
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -1,0 +1,19 @@
+#
+# Main configuration file.
+#
+
+# Configuration shared between all environments:
+defaults: &defaults
+  google_analytics_id: ''
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+integration:
+  <<: *defaults
+
+production:
+  <<: *defaults

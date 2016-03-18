@@ -1,8 +1,6 @@
 <div class="row">
   <div class="col-xs-8">
     <%= form_tag demo_generate_path, :remote => true do %>
-
-
       <div class="col-xs-6">
         <div class="form-group">
           <%= text_field_tag :title, '', class: 'form-control', placeholder: 'Title' %>
@@ -39,10 +37,13 @@
   </div>
 
   <div class="col-xs-4">
-    <img width= "200px" id="example">
+    <%= image_tag "data:image/svg+xml;utf8, #{raw(@image)}", width: "200px", id: "example", class: 'svg-img img-responsive' %>
   </div>
 
+
+
 </div>
+  <div class="well well-sm">RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)</div>
 
 <script type="text/javascript">
   $("#add_color").click(function(){

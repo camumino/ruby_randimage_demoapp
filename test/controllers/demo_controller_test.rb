@@ -6,4 +6,15 @@ class DemoControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should post generate" do
+    post :generate
+    assert_response :success
+  end
+
+  test "should render generate" do
+    assert_template 'generate'
+  end
+
+
+
 end

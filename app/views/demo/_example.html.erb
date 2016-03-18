@@ -1,0 +1,15 @@
+<h3>Example1</h3>
+
+<div class="row">
+  <div class="col-xs-8">
+    <div class="well well-sm">RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)</div>
+    <%= form_tag demo_example_path(example: example), :remote => true do %>
+      <%= submit_tag 'Generate' %>
+    <% end %>
+  </div>
+
+  <div class="col-xs-4">
+    <%= image_tag "data:image/svg+xml;utf8, #{raw(@image)}", width: "200px", id: "example#{example}", class: 'svg-img img-responsive' %>
+  </div>
+  
+</div>
