@@ -13,4 +13,17 @@ class DemoController < ApplicationController
     @image = RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)
   end
 
+
+  def example1
+    @image = RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)
+  end
+
+  def example2
+    @image = RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)
+  end
+
+  def example3
+    @image = RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)  
+  end
+
 end

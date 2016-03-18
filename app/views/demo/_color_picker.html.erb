@@ -1,7 +1,14 @@
 <div class="form-group">
-  <%= text_field_tag 'colors[]', '', class: 'color form-control' %>
+  <div class="input-group">
+    <%= text_field_tag 'colors[]', '', class: 'color form-control' %>
+    
+    <span class="input-group-btn">
+                                      <button class="btn btn-default" type="button">Button</button>
+                                  </span>
+  </div>
+
 </div>
 
 <script type="text/javascript">
-  $(".color").minicolors();
+  $(".color").minicolors({theme: 'bootstrap'});
 </script>
