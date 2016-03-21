@@ -43,10 +43,66 @@
 
 
 </div>
-  <div class="well well-sm">RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)</div>
+  <div id="div_command" class="well well-sm">RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)</div>
 
 <script type="text/javascript">
+
   $("#add_color").click(function(){
     $("#color_list").append("<%= escape_javascript(render partial: 'demo/color_picker') %>");
   });
+
+
+  $(document).ready(function(){
+    
+
+    $(document).on("change", "input.color", function()
+    {
+      state_chaged();
+    });
+
+    state_chaged();
+
+  });
+
+  $("#title").keyup(function(){
+    state_chaged();
+  });
+  
+  $("#cells").keyup(function(){
+    state_chaged();
+  });
+
+  $("#cells").change(function(){
+    state_chaged();
+  });
+
+  $("#seed").keyup(function(){
+    state_chaged();
+  });
+
+  $("#axe_x").change(function(){
+    state_chaged();
+  });
+
+  $("#axe_y").change(function(){
+    state_chaged();
+  });
+
+
+
+  function state_chaged()
+  {
+    colors = [];
+    $.each($("input.color"), function(){
+      colors.push($(this).val());
+    });
+
+    
+    gem_command = get_command($("#title").val(), $("#cells").val(), colors 
+                  , [ $("#axe_x").is(':checked'), $("#axe_y").is(':checked')], $("#seed").val() );
+
+    
+    $('#div_command').text(gem_command);
+  }
+
 </script>
