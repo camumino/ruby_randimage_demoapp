@@ -5,7 +5,7 @@
     <div class="well well-sm"><em>RubyRandimage.create(<%= EXAMPLES[example] %>)</em></div>
 
     <%= form_tag demo_example_path(example: example), :remote => true do %>
-      <%= submit_tag 'Generate', :class => "btn btn-default" %>
+      <%= submit_tag 'Generate', :class => "btn btn-default", :onclick => "track_cta_click('generate', #{example});" %>
     <% end %>
   </div>
 
