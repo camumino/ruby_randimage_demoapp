@@ -1,60 +1,62 @@
 <div class="row">
   <div class="col-xs-8">
     <%= form_tag demo_generate_path, :remote => true do %>
-      <div class="col-xs-6">
-        <div class="form-group">
-          <%= text_field_tag :title, '', class: 'form-control', placeholder: 'Title' %>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <%= text_field_tag :title, EXAMPLES[0][:title], class: 'form-control', placeholder: 'Title' %>
+          </div>
+
+          <div class="form-group">
+            <%= number_field_tag :cells, EXAMPLES[0][:num_cells], { class: 'form-control', min: 2, max: 16} %>
+          </div>
+
+          <div class="checkbox">
+            <label>
+              <%= check_box_tag :axe_x, true, EXAMPLES[0][:symmetry_axes][0] %> Eje X
+            </label>
+
+            <label>
+              <%= check_box_tag :axe_y, true, EXAMPLES[0][:symmetry_axes][1] %> Eje Y
+            </label>
+          </div>
+
+          <%= text_field_tag :seed, '', class: 'form-control', placeholder: 'Seed' %>          
         </div>
 
-        <div class="form-group">
-          <%= number_field_tag :cells, 4, { class: 'form-control', min: 2, max: 16} %>
+        <div class="col-xs-6">
+          <div id="color_list">
+            <%= render partial: 'demo/color_picker', locals: {color: EXAMPLES[0][:colors][0]} %>
+            <%= render partial: 'demo/color_picker', locals: {color: EXAMPLES[0][:colors][1]} %>
+          </div>
+
+          <a href='#' id="add_color">Add color</a>
         </div>
+      </div>
+      <br>
 
-        <div class="checkbox">
-          <label>
-            <%= check_box_tag :axe_x %> Eje X
-          </label>
-
-          <label>
-            <%= check_box_tag :axe_y %> Eje Y
-          </label>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="well well-sm"><em id="div_command">RubyRandimage.create(<%= EXAMPLES[0] %>)</em></div>
+          <%= submit_tag 'Generate', :class => "btn btn-default" %>
         </div>
-
-        <%= text_field_tag :seed, '', class: 'form-control', placeholder: 'Seed' %>
-
-        
-        <%= submit_tag 'Generate' %>
       </div>
 
-      <div class="col-xs-6">
-        <div id="color_list">
-          <%= render partial: 'demo/color_picker' %>
-        </div>
-
-        <%= link_to 'Añadir color', '#', :id => "add_color" %>
-      </div>
     <% end %>
   </div>
 
   <div class="col-xs-4">
-    <%= image_tag "data:image/svg+xml;utf8, #{raw(@image)}", width: "200px", id: "example", class: 'svg-img img-responsive' %>
+    <%= image_tag "data:image/svg+xml;utf8, #{raw(@image0 || @image)}", width: "200px", id: "example", class: 'svg-img img-responsive' %>
   </div>
-
-
-
 </div>
-  <div id="div_command" class="well well-sm">RubyRandimage.create(:title => title, :colors => colors, :symmetry_axes=> [axe_x, axe_y], :num_cells => cells)</div>
 
 <script type="text/javascript">
 
   $("#add_color").click(function(){
-    $("#color_list").append("<%= escape_javascript(render partial: 'demo/color_picker') %>");
+    $("#color_list").append("<%= escape_javascript(render partial: 'demo/color_picker', locals: {remove: true}) %>");
   });
 
-
   $(document).ready(function(){
-    
-
     $(document).on("change", "input.color", function()
     {
       state_chaged();

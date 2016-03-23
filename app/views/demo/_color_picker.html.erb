@@ -1,14 +1,21 @@
-<div class="form-group">
-  <div class="input-group">
-    <%= text_field_tag 'colors[]', '', class: 'color form-control' %>
-    
-    <span class="input-group-btn">
-                                      <button class="btn btn-default" type="button">Button</button>
-                                  </span>
-  </div>
-
+<div class="form-group color-picker">
+  <% if defined? remove %> 
+    <div class="input-group">
+      <%= text_field_tag 'colors[]', '', class: 'color form-control' %>
+      <span class="input-group-btn">
+        <button class="btn btn-danger" type="button">Remove</button>
+      </span>
+    </div>
+  <% else %>
+    <%= text_field_tag 'colors[]', color, class: 'color form-control' %>  
+  <% end %>
 </div>
 
 <script type="text/javascript">
   $(".color").minicolors({theme: 'bootstrap'});
+
+  $(".color-picker button").click(function(){
+    $(this).parents(".color-picker").remove();
+  });
 </script>
+

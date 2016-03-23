@@ -10,7 +10,7 @@
   <p>Generate your awesome icons trying several options and click on generate</p>
   
   <%= render partial: 'demo/form' %>
-  <%= render partial: 'demo/example', locals: {example: 1} %>
-  <%= render partial: 'demo/example', locals: {example: 2} %>
-  <%= render partial: 'demo/example', locals: {example: 3} %>
+  <%= render partial: 'demo/example', locals: {example: 1, image: @image1} %>
+  <%= render partial: 'demo/example', locals: {example: 2, image: @image2} %>
+  <%= render partial: 'demo/example', locals: {example: 3, image: @image3} %>
 </div>

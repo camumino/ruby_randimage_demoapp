@@ -1,7 +1,15 @@
 class DemoController < ApplicationController
   
   def index
-    @image = RubyRandimage.create(:title => "Awesome image", :colors => ["#aaaaaa", "#990000"], :symmetry_axes=> [true, true], :num_cells => 10)
+    options0 = EXAMPLES[0]
+    options1 = EXAMPLES[1]
+    options2 = EXAMPLES[2]
+    options3 = EXAMPLES[3]
+
+    @image0 = RubyRandimage.create(options0)
+    @image1 = RubyRandimage.create(options1)
+    @image2 = RubyRandimage.create(options2)
+    @image3 = RubyRandimage.create(options3)
   end
 
   def generate
